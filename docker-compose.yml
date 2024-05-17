@@ -5,7 +5,7 @@ services:
     ports:
       - 5432
     volumes:
-      - ./pg_data/pg_0_data:/bitnami/postgresql
+      - pg_0_data:/bitnami/postgresql
     environment:
       - POSTGRESQL_POSTGRES_PASSWORD=adminpassword
       - POSTGRESQL_USERNAME=customuser
@@ -23,7 +23,7 @@ services:
     ports:
       - 5432
     volumes:
-      - ./pg_data/pg_1_data:/bitnami/postgresql
+      - pg_1_data:/bitnami/postgresql
     environment:
       - POSTGRESQL_POSTGRES_PASSWORD=adminpassword
       - POSTGRESQL_USERNAME=customuser
@@ -54,6 +54,12 @@ services:
       interval: 10s
       timeout: 5s
       retries: 5
+      
+volumes:
+  pg_0_data:
+    driver: local
+  pg_1_data:
+    driver: local
       
 networks:
   mapper_rede:
