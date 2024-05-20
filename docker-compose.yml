@@ -18,6 +18,14 @@ services:
       - REPMGR_NODE_NETWORK_NAME=pg-0
     networks:
       - mapper_rede
+    deploy:
+      resources:
+        limits:
+          cpus: 0.25
+          memory: 4048M
+        reservations:
+          cpus: 0.1
+          memory: 1024M
 
   pg-1:
     container_name: pg-1
@@ -38,12 +46,22 @@ services:
       - REPMGR_NODE_NETWORK_NAME=pg-1
     networks:
       - mapper_rede
+    deploy:
+      resources:
+        limits:
+          cpus: 0.25
+          memory: 4048M
+        reservations:
+          cpus: 0.1
+          memory: 1024M
 
   pgpool:
     container_name: pgpool
-    image: bitnami/pgpool:4
+    image: bitnami/pgpool:latest
     ports:
       - 5432:5432
+    volumes:
+      - pgpool_data:/opt/bitnami
     environment:
       - PGPOOL_BACKEND_NODES=0:pg-0:5432,1:pg-1:5432
       - PGPOOL_SR_CHECK_USER=customuser
@@ -60,6 +78,14 @@ services:
       retries: 5
     networks:
       - mapper_rede
+    deploy:
+      resources:
+        limits:
+          cpus: 0.25
+          memory: 4048M
+        reservations:
+          cpus: 0.1
+          memory: 1024M
       
 networks:
   mapper_rede:
@@ -69,4 +95,6 @@ volumes:
   pg_0_data:
     driver: local
   pg_1_data:
+    driver: local
+  pgpool_data:
     driver: local
