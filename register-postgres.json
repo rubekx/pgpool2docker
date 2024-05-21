@@ -1,14 +1,14 @@
 {
-    "name": "inventory-connector",
+    "name": "mapper-connector",
     "config": {
         "connector.class": "io.debezium.connector.postgresql.PostgresConnector",
         "tasks.max": "1",
-        "database.hostname": "mapper-postgres",
+        "database.hostname": "172.18.0.6",
         "database.port": "5432",
-        "database.user": "laravel",
-        "database.password": "laravel",
-        "database.dbname" : "postgres",
+        "database.user": "postgres",
+        "database.password": "adminpassword",
+        "database.dbname" : "mapper",
         "topic.prefix": "dbserver1",
-        "schema.include.list": "inventory"
+        "schema.include.list": "mapper"
     }
 }
