@@ -3,11 +3,11 @@
     "config": {
         "connector.class": "io.debezium.connector.postgresql.PostgresConnector",
         "tasks.max": "1",
-        "database.hostname": "pgpool",
+        "database.hostname": "mapper-postgres",
         "database.port": "5432",
-        "database.user": "postgres",
-        "database.password": "adminpassword",
-        "database.dbname" : "mapper",
+        "database.user": "laravel",
+        "database.password": "laravel",
+        "database.dbname" : "postgres",
         "topic.prefix": "dbserver1",
         "schema.include.list": "inventory"
     }

@@ -113,8 +113,6 @@ services:
     container_name: kafka
     ports:
      - 9092:9092
-    links:
-     - zookeeper
     environment:
      - ZOOKEEPER_CONNECT=zookeeper:2181
     networks:
@@ -133,9 +131,6 @@ services:
     container_name: connect
     ports:
      - 8083:8083
-    links:
-     - kafka
-     - postgres
     environment:
      - BOOTSTRAP_SERVERS=kafka:9092
      - GROUP_ID=1
@@ -149,6 +144,50 @@ services:
         limits:
           cpus: 0.25
           memory: 4048M
+        reservations:
+          cpus: 0.1
+          memory: 1024M
+
+  postgres:
+    # image: quay.io/debezium/example-postgres:${DEBEZIUM_VERSION}
+    container_name: postgres
+    build: 
+      context: dockerfiles
+      dockerfile: 'Dockerfile.postgres'
+    ports:
+     - 5435:5432
+    environment:
+     - POSTGRES_USER=postgres
+     - POSTGRES_PASSWORD=adminpassword
+    networks:
+      - mapper_rede
+    deploy:
+      resources:
+        limits:
+          cpus: 0.25
+          memory: 2048M
+        reservations:
+          cpus: 0.1
+          memory: 1024M
+
+  kafka-ui:
+    container_name: kafka-ui
+    image: provectuslabs/kafka-ui:latest
+    ports:
+      - 8080:8080
+    depends_on:
+      - kafka
+    environment:
+      DYNAMIC_CONFIG_ENABLED: 'true'
+      KAFKA_CLUSTERS_0_NAME: wizard_test
+      KAFKA_CLUSTERS_0_BOOTSTRAPSERVERS: kafka:9092
+    networks:
+      - mapper_rede
+    deploy:
+      resources:
+        limits:
+          cpus: 0.25
+          memory: 2048M
         reservations:
           cpus: 0.1
           memory: 1024M
