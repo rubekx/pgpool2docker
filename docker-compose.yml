@@ -143,14 +143,14 @@ services:
      - STATUS_STORAGE_TOPIC=my_connect_statuses
     networks:
       - mapper_rede
-    deploy:
-      resources:
-        limits:
-          cpus: 0.25
-          memory: 4048M
-        reservations:
-          cpus: 0.1
-          memory: 1024M
+    # deploy:
+    #   resources:
+    #     limits:
+    #       cpus: 0.25
+    #       memory: 4048M
+    #     reservations:
+    #       cpus: 0.1
+    #       memory: 1024M
 
   postgres:
     # image: quay.io/debezium/example-postgres:${DEBEZIUM_VERSION}
