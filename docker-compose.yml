@@ -152,13 +152,15 @@ services:
     # image: quay.io/debezium/example-postgres:${DEBEZIUM_VERSION}
     container_name: postgres
     build: 
-      context: dockerfiles
+      context: postgres
       dockerfile: 'Dockerfile.postgres'
     ports:
      - 5435:5432
     environment:
      - POSTGRES_USER=postgres
      - POSTGRES_PASSWORD=adminpassword
+    volumes:
+      - ./postgres/database:/var/lib/postgresql/data
     networks:
       - mapper_rede
     deploy:
