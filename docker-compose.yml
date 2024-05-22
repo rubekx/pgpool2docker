@@ -152,22 +152,22 @@ services:
     #       cpus: 0.1
     #       memory: 1024M
 
-  postgres:
-    # image: quay.io/debezium/example-postgres:${DEBEZIUM_VERSION}
-    container_name: postgres
-    build: 
-      context: postgres
-      dockerfile: 'Dockerfile.postgres'
-    ports:
-     - 5435:5432
-    environment:
-     - TZ=America/Fortaleza
-     - POSTGRES_USER=postgres
-     - POSTGRES_PASSWORD=adminpassword
-    volumes:
-      - ./postgres/database:/var/lib/postgresql/data
-    networks:
-      - mapper_rede
+  # postgres:
+  #   # image: quay.io/debezium/example-postgres:${DEBEZIUM_VERSION}
+  #   container_name: postgres
+  #   build: 
+  #     context: postgres
+  #     dockerfile: 'Dockerfile.postgres'
+  #   ports:
+  #    - 5435:5432
+  #   environment:
+  #    - TZ=America/Fortaleza
+  #    - POSTGRES_USER=postgres
+  #    - POSTGRES_PASSWORD=adminpassword
+  #   volumes:
+  #     - ./postgres/database:/var/lib/postgresql/data
+  #   networks:
+  #     - mapper_rede
     # deploy:
     #   resources:
     #     limits:
