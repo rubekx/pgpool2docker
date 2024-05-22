@@ -75,3 +75,9 @@
 ### Conclusão
 
 Com isso, você configurou o ambiente PostgreSQL para suportar a replicação lógica e criou um usuário com os privilégios necessários para o Debezium. O próximo passo seria configurar o conector Debezium no Kafka Connect, que envolveria configurar o Kafka Connect, adicionar o conector Debezium para PostgreSQL, e configurar o conector com as informações do banco de dados e do usuário recém-criado. Se precisar de ajuda para configurar o Debezium no Kafka Connect ou qualquer outro detalhe, fique à vontade para perguntar!
+
+parte1
+https://youtu.be/9yP_75OBWis
+
+parte2
+https://youtu.be/xh9rVSqNHMI?si=oxnoKABEjPTBbZfL

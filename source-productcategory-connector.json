@@ -1,0 +1,21 @@
+{
+        "name": "source-productcategory-connector",
+        "config": {
+                "connector.class": "io.debezium.connector.postgresql.PostgresConnector",
+                "database.hostname": "192.168.80.3",
+                "database.port": "5432",
+                "database.user": "laravel",
+                "database.password": "laravel",
+                "database.dbname": "mapper_2024_03_22",
+                "plugin.name": "pgoutput",
+                "database.server.name": "source",
+                "key.converter.schemas.enable": "false",
+                "value.converter.schemas.enable": "false",
+                "transforms": "unwrap",
+                "transforms.unwrap.type": "io.debezium.transforms.ExtractNewRecordState",
+                "value.converter": "org.apache.kafka.connect.json.JsonConverter",
+                "key.converter": "org.apache.kafka.connect.json.JsonConverter",
+                "table.include.list": "public.tc_logs",
+                "slot.name": "dbz_sales_transaction_slot"
+        }
+}
