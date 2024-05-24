@@ -23,12 +23,12 @@ monitoring: # Monitoring settings (optional)
   callback-url: http://conduktor-console:8080/monitoring/api/
   notifications-callback-url: http://localhost:8080
 
-# clusters: # Cluster and schema registry configuration (optional)
-  # - id: my-local-kafka-cluster
-  #   name: My Local Kafka Cluster
-  #   bootstrapServers: "kafka:9092"
-  #   schemaRegistry:
-  #     url: "http://registry:8081"
+clusters: # Cluster and schema registry configuration (optional)
+  - id: my-local-kafka-cluster
+    name: My Local Kafka Cluster
+    bootstrapServers: "kafka:29092"
+    schemaRegistry:
+      url: "http://schema-registry:8081"
 #    kafkaConnects:
 #      - url: http://kafka-connect:8083
 #        name: full stack kafka connect
