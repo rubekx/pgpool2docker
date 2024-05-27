@@ -14,7 +14,7 @@ services:
 
   trino-worker:
     image: 'trinodb/trino:358'
-    container_name: trino-worker
+    # container_name: trino-worker
     restart: unless-stopped
     volumes:
       - ./trino/worker/etc:/etc/trino:ro
