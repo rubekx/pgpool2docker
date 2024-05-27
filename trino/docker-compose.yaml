@@ -3,6 +3,7 @@ version: "3.9"
 services:
   trino-coordinator:
     image: 'trinodb/trino:358'
+    restart: unless-stopped
     container_name: trino-coordinator
     ports:
       - '8080:8080'
@@ -14,6 +15,7 @@ services:
   trino-worker:
     image: 'trinodb/trino:358'
     container_name: trino-worker
+    restart: unless-stopped
     volumes:
       - ./trino/worker/etc:/etc/trino:ro
     networks:
