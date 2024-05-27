@@ -2,7 +2,7 @@
         "name": "source-mapper-connector",
         "config": {
                 "connector.class": "io.debezium.connector.postgresql.PostgresConnector",
-                "database.hostname": "172.18.0.3",
+                "database.hostname": "mapper-postgres",
                 "database.port": "5432",
                 "database.user": "laravel",
                 "database.password": "laravel",
@@ -16,6 +16,6 @@
                 "value.converter": "org.apache.kafka.connect.json.JsonConverter",
                 "key.converter": "org.apache.kafka.connect.json.JsonConverter",
                 "table.include.list": "public.tc_positions",
-                "slot.name": "dbz_logs_transaction_slot"
+                "slot.name": "mapper_positions"
         }
 }
