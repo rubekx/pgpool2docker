@@ -2,7 +2,7 @@ organization: # Name of your organization (mandatory)
   name: "My Organization"
 
 database: # Database credentials, must match what you have in the docker-compose (mandatory)
-  host: "postgresql"
+  host: "postgresqldb"
   port: 5432
   name: "conduktor-console"
   username: "conduktor"

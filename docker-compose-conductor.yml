@@ -5,6 +5,7 @@ services:
     image: postgres:14
     hostname: postgresqldb
     container_name: postgresqldb
+    restart: unless-stopped
     networks:
       - mapper_rede
     environment:
@@ -17,6 +18,7 @@ services:
     image: conduktor/conduktor-console:1.23.0
     hostname: conduktor-console
     container_name: conduktor-console
+    restart: unless-stopped
     networks:
       - mapper_rede
     depends_on:
@@ -34,6 +36,7 @@ services:
   conduktor-monitoring:
     hostname: conduktor-monitoring
     container_name: conduktor-monitoring
+    restart: unless-stopped
     image: conduktor/conduktor-console-cortex:1.23.0
     networks:
       - mapper_rede

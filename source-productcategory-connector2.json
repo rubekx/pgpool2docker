@@ -1,0 +1,23 @@
+{
+        "name": "source-mapper-connector",
+        "config": {
+                "connector.class": "io.debezium.connector.postgresql.PostgresConnector",
+                "database.hostname": "mapper-postgres",
+                "database.port": "5432",
+                "database.user": "laravel",
+                "database.password": "laravel",
+                "database.dbname": "mapper_2024_05_24",
+                "plugin.name": "pgoutput",
+                "database.server.name": "source",
+                "key.converter.schemas.enable": "true",
+                "value.converter.schemas.enable": "true",
+                "transforms": "unwrap",
+                "transforms.unwrap.type": "io.debezium.transforms.ExtractNewRecordState",
+                "value.converter": "io.confluent.connect.avro.AvroConverter",
+                "value.converter.schema.registry.url": "http://schema-registry-url:8081",
+                "key.converter": "io.confluent.connect.avro.AvroConverter",
+                "key.converter.schema.registry.url": "http://schema-registry-url:8081",
+                "table.include.list": "public.tc_positions",
+                "slot.name": "mapper_positions"
+        }
+}
