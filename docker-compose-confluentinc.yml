@@ -7,7 +7,7 @@ services:
     environment:
       ZOOKEEPER_CLIENT_PORT: 2181
     networks:
-      - mapper_rede
+      - mapper_voxter_rede
 
   kafka:
     image: confluentinc/cp-enterprise-kafka:5.5.3
@@ -16,7 +16,7 @@ services:
     depends_on:
       - zookeeper
     networks:
-      - mapper_rede
+      - mapper_voxter_rede
     ports:
       - 29092:29092
     environment:
@@ -42,7 +42,7 @@ services:
       CONNECT_VALUE_CONVERTER_SCHEMA_REGISTRY_URL: http://schema-registry:8081
     depends_on: [kafka]
     networks:
-      - mapper_rede
+      - mapper_voxter_rede
     ports:
       - 8083:8083
 
@@ -57,7 +57,7 @@ services:
     ports:
       - 8081:8081
     networks:
-      - mapper_rede
+      - mapper_voxter_rede
     depends_on: [zookeeper, kafka]
   
   kafka_manager:
@@ -67,7 +67,7 @@ services:
     ports:
       - "9000:9000"
     networks:
-      - mapper_rede
+      - mapper_voxter_rede
     depends_on:
       - zookeeper
       - kafka
@@ -77,5 +77,5 @@ services:
     command: -Dpidfile.path=/dev/null 
 
 networks:
-  mapper_rede:
+  mapper_voxter_rede:
     external: true

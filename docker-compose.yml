@@ -18,7 +18,7 @@ services:
   #     - REPMGR_NODE_NAME=pg-0
   #     - REPMGR_NODE_NETWORK_NAME=pg-0
   #   networks:
-  #     - mapper_rede
+  #     - mapper_voxter_rede
   #   deploy:
   #     resources:
   #       limits:
@@ -47,7 +47,7 @@ services:
   #     - REPMGR_NODE_NAME=pg-1
   #     - REPMGR_NODE_NETWORK_NAME=pg-1
   #   networks:
-  #     - mapper_rede
+  #     - mapper_voxter_rede
   #   deploy:
   #     resources:
   #       limits:
@@ -80,7 +80,7 @@ services:
   #     timeout: 5s
   #     retries: 5
   #   networks:
-  #     - mapper_rede
+  #     - mapper_voxter_rede
   #   deploy:
   #     resources:
   #       limits:
@@ -100,7 +100,7 @@ services:
     environment:
      - TZ=America/Fortaleza
     networks:
-      - mapper_rede
+      - mapper_voxter_rede
     # deploy:
     #   resources:
     #     limits:
@@ -119,7 +119,7 @@ services:
      - TZ=America/Fortaleza
      - ZOOKEEPER_CONNECT=zookeeper:2181
     networks:
-      - mapper_rede
+      - mapper_voxter_rede
     # deploy:
     #   resources:
     #     limits:
@@ -142,7 +142,7 @@ services:
      - OFFSET_STORAGE_TOPIC=my_connect_offsets
      - STATUS_STORAGE_TOPIC=my_connect_statuses
     networks:
-      - mapper_rede
+      - mapper_voxter_rede
     # deploy:
     #   resources:
     #     limits:
@@ -167,7 +167,7 @@ services:
   #   volumes:
   #     - ./postgres/database:/var/lib/postgresql/data
   #   networks:
-  #     - mapper_rede
+  #     - mapper_voxter_rede
     # deploy:
     #   resources:
     #     limits:
@@ -190,7 +190,7 @@ services:
       KAFKA_CLUSTERS_0_NAME: wizard_test
       KAFKA_CLUSTERS_0_BOOTSTRAPSERVERS: kafka:9092
     networks:
-      - mapper_rede
+      - mapper_voxter_rede
     # deploy:
     #   resources:
     #     limits:
@@ -209,12 +209,12 @@ services:
       - TZ=America/Fortaleza
       - KAFKA_CONNECT_URIS=http://connect:8083
     networks:
-      - mapper_rede
+      - mapper_voxter_rede
     depends_on:
       - connect
         
 networks:
-  mapper_rede:
+  mapper_voxter_rede:
     external: true
 
 volumes:

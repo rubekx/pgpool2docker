@@ -7,7 +7,7 @@ services:
     container_name: postgresqldb
     restart: unless-stopped
     networks:
-      - mapper_rede
+      - mapper_voxter_rede
     environment:
       POSTGRES_DB: "conduktor-console"
       POSTGRES_USER: "conduktor"
@@ -20,7 +20,7 @@ services:
     container_name: conduktor-console
     restart: unless-stopped
     networks:
-      - mapper_rede
+      - mapper_voxter_rede
     depends_on:
       - postgresqldb
     ports:
@@ -39,10 +39,10 @@ services:
     restart: unless-stopped
     image: conduktor/conduktor-console-cortex:1.23.0
     networks:
-      - mapper_rede
+      - mapper_voxter_rede
     environment:
       CDK_CONSOLE-URL: "http://conduktor-console:8080"
       
 networks:
-  mapper_rede:
+  mapper_voxter_rede:
     external: true

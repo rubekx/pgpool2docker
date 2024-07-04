@@ -10,7 +10,7 @@ services:
     volumes:
       - ./trino/coordinator/etc:/etc/trino:ro
     networks:
-      - mapper_rede
+      - mapper_voxter_rede
 
   trino-worker:
     image: 'trinodb/trino:358'
@@ -19,8 +19,8 @@ services:
     volumes:
       - ./trino/worker/etc:/etc/trino:ro
     networks:
-      - mapper_rede
+      - mapper_voxter_rede
 
 networks:
-  mapper_rede:
+  mapper_voxter_rede:
     external: true
